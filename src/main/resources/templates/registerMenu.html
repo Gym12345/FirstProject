@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+
+<head>
+    <title>User Registration</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS */
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+<body>
+   <div class="container">
+        <div class="form-container">
+            <h2 class="text-center">Register Form</h2>
+            
+           <form th:action="@{/registerCheck}" method="post">
+                <div class="form-group">
+                    <label for="userId">ID:</label>
+                    <input type="text" name="userId" class="form-control" required >
+                </div>
+                <div class="form-group">
+                    <label for="userPw">PW:</label>
+                    <input type="password" name="userPw" class="form-control" required >
+                </div>
+                <div class="form-group">
+                    <label for="userName" >User Name:</label>
+                    <input type="text" name="userName" class="form-control" required>
+                </div>
+                <button type="submit" id="signupButton" class="btn btn-success btn-block" >Sign Up</button>
+            </form>
+            
+            <a href="loginMenu" class="mt-3 d-block text-center">Go back</a>
+        </div>
+    </div>
+    <script>
+    /*   document.getElementById('checkRedundancy').addEventListener('click', function() {
+    // Show the password input field
+   		 document.getElementById('passwordContainer').style.display = 'block';
+		}); */
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+   
