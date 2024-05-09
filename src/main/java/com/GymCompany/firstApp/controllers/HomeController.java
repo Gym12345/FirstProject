@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.GymCompany.firstApp.model.UserListDTO;
@@ -39,6 +42,8 @@ public class HomeController {
 	
 	@GetMapping(value = "/registerMenu")
 	public String registerMenu(HttpServletRequest request) {
+		System.out.println("registerMenu");
+
 		return "registerMenu";
 	}
 	
@@ -46,12 +51,12 @@ public class HomeController {
 	
 	@PostMapping("/registerCheck")
     public String registerUser(
-    		
             @RequestParam("userId") String userId,
             @RequestParam("userPw") String userPw,
             @RequestParam("userName") String userName,
             RedirectAttributes redirectAttributes) {
-		System.out.println("registerChekc");
+		
+		
         // Create a new UserListDTO object with the form data
         UserListDTO userDTO = new UserListDTO();
         userDTO.setUserId(userId);
@@ -60,18 +65,21 @@ public class HomeController {
         userDTO.setJoinDate(LocalDate.now());
         System.out.println("userId:"+userDTO.getUserId());
         try {
-            // Register the user
-        	
+         
+        	   
         	userListService.registerUser(userDTO);
-            // Redirect to a success page or show a success message
+        	
             redirectAttributes.addFlashAttribute("successMessage", "Registration successful!");
-            return "loginMenu"; // Redirect to the login menu after successful registration
+            
+            return "loginMenu"; 
         } catch (IllegalArgumentException e) {
-            // If user registration fails, redirect back to the registration form with an error message
+          
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
             return "registerMenu";
         }
     }
 	
+	
+
 	
 }

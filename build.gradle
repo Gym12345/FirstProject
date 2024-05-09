@@ -24,6 +24,10 @@ dependencies {
     //implementation 'org.springframework.security:spring-security-test'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // If you're using Thymeleaf for HTML rendering
 	implementation 'javax.validation:validation-api:2.0.1.Final' // or latest version
+	// https://mvnrepository.com/artifact/org.springframework/spring-test
+	
+	
+	testImplementation group: 'org.springframework', name: 'spring-test', version: '6.1.6'
 	
 	implementation 'org.springframework.security:spring-security-crypto' // Bcrypt hashing library
 	

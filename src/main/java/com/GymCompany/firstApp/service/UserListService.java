@@ -26,17 +26,13 @@ public class UserListService {
     @Transactional
     public void registerUser(UserListDTO userDTO) {
         // Check if the user already exists
-//        Optional<UserListDTO> existingUser = userListRepository.findByUserId(userDTO.getUserId());
-//        if (existingUser.isPresent()) {
-//            throw new IllegalArgumentException("User with this username already exists");
-//        }
 
         // Encrypt the password using BCrypt
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(userDTO.getUserPw());
         userDTO.setUserPw(encodedPassword);
 
-     // Set other properties
+        // Set other properties
         userDTO.setJoinDate(LocalDate.now());
         userDTO.setLastLoginTime(LocalDateTime.now());
 
@@ -49,22 +45,13 @@ public class UserListService {
                 userDTO.getLastLoginTime()
         );
     }
+    
+    @Transactional
+    public int redundancyCheck(String userId) {
+    	System.out.println(userId);
+        int result=userListRepository.userRddCheck(userId);
+        return result;
+    }
 
-//    public void registerUser(UserListDTO userDTO) {
-//        
-//        if (userListRepository.findByUserId(userDTO.getUserId()).isPresent()) { // Check if the user already exists
-//            throw new IllegalArgumentException("User with this username already exists");
-//        }
-//
-//        // Encrypt the password using BCrypt
-//        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//        String encodedPassword = passwordEncoder.encode(userDTO.getUserPw());
-//        userDTO.setUserPw(encodedPassword);
-//
-//        // Set other properties
-//        userDTO.setJoinDate(LocalDate.now());
-//
-//        // Save the user to the database
-//        userListRepository.save(userDTO);
-//    }
+
 }
