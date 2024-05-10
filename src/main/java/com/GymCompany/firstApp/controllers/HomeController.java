@@ -49,35 +49,7 @@ public class HomeController {
 	
 	
 	
-	@PostMapping("/registerCheck")
-    public String registerUser(
-            @RequestParam("userId") String userId,
-            @RequestParam("userPw") String userPw,
-            @RequestParam("userName") String userName,
-            RedirectAttributes redirectAttributes) {
-		
-		
-        // Create a new UserListDTO object with the form data
-        UserListDTO userDTO = new UserListDTO();
-        userDTO.setUserId(userId);
-        userDTO.setUserPw(userPw);
-        userDTO.setUserName(userName);
-        userDTO.setJoinDate(LocalDate.now());
-        System.out.println("userId:"+userDTO.getUserId());
-        try {
-         
-        	   
-        	userListService.registerUser(userDTO);
-        	
-            redirectAttributes.addFlashAttribute("successMessage", "Registration successful!");
-            
-            return "loginMenu"; 
-        } catch (IllegalArgumentException e) {
-          
-            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
-            return "registerMenu";
-        }
-    }
+
 	
 	
 

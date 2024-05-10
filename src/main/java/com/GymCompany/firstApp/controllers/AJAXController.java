@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.GymCompany.firstApp.model.UserListDTO;
 import com.GymCompany.firstApp.service.UserListService;
 
 @RestController
@@ -23,10 +24,24 @@ public class AJAXController {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		return result;
 	}
+	
+	@PostMapping("/registerCheck")
+    public int registerUser(@RequestBody UserListDTO userDTO) {
+		int result=0;
+        try {
+            
+            userListService.registerUser(userDTO);
+            result=1;
+            return result;
+        } catch (IllegalArgumentException e) {
+            result=0;
+            return result ;
+        }
+    }
 	
 }	

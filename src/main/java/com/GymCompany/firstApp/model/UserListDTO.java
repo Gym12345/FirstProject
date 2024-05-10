@@ -27,7 +27,7 @@ public class UserListDTO {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userListSeqGen")
-    @SequenceGenerator(name = "userListSeqGen", sequenceName = "userList_seq", allocationSize = 1)
+    @SequenceGenerator(name = "userListSeqGen", sequenceName = "user_list_seq", allocationSize = 1)
     @Column(name = "ULID")
     private int ulid;
     
@@ -49,7 +49,7 @@ public class UserListDTO {
     @Column(name = "join_date")
     private LocalDate joinDate;
     
-    @Column(name = "LastLoginTime")
+    @Column(name = "Last_Login_Time")
     private LocalDateTime lastLoginTime;
 
     public UserListDTO() {}
