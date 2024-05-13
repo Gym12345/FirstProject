@@ -23,7 +23,7 @@ import jakarta.persistence.Table;
 //LASTLOGINTIME	TIMESTAMP(6)	Yes		6	
 @Entity
 @Table(name = "USERLIST")
-public class UserListDTO {
+public class UserListDTO {   // (db 유저리스트 객체)
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userListSeqGen")

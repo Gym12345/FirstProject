@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.GymCompany.firstApp.model.TempUserDTO;
 import com.GymCompany.firstApp.model.UserListDTO;
 import com.GymCompany.firstApp.service.UserListService;
 
@@ -43,5 +44,17 @@ public class AJAXController {
             return result ;
         }
     }
+	
+	@PostMapping("/loginCheck")
+	public int loginCheck(@RequestBody TempUserDTO tempUserDTO) {
+		int result=0;
+		String userId = tempUserDTO.getUserId();
+        String userPw = tempUserDTO.getUserPw();
+		System.out.println("inputInfo:"+ userId+ ":" + userPw);
+		
+		System.out.println("tempDTO:"+tempUserDTO.toString());
+		
+		return result;
+	}
 	
 }	

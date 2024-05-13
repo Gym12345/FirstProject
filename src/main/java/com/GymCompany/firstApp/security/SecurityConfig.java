@@ -15,7 +15,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
-                        .requestMatchers("/","/registerMenu","/rddCheck","/registerCheck").permitAll()
+                        .requestMatchers("/","/registerMenu","/rddCheck","/registerCheck","/testPage","/loginCheck").permitAll()
                         .anyRequest().authenticated() 
         )
                 .formLogin(formLogin ->
@@ -23,7 +23,7 @@ public class SecurityConfig {
                                 .loginPage("/loginMenu") // Custom login page
                                 .permitAll()
                 )
-                .logout(logout ->
+                .logout(logout -> 
                         logout
                                 .permitAll()
                 ).csrf().disable()

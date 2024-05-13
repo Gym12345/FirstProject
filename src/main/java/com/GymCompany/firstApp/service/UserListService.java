@@ -27,7 +27,7 @@ public class UserListService {
     public void registerUser(UserListDTO userDTO) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(userDTO.getUserPw());
-
+ 
        
         UserListDTO newUser = new UserListDTO();
         newUser.setUserId(userDTO.getUserId());
