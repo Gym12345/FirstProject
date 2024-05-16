@@ -2,7 +2,7 @@ package com.GymCompany.firstApp.model;
 
 public class TokenDTO {   //(토큰)
 	private String token;
-
+	
 	public String getToken() {
 		return token;
 	}

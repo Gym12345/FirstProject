@@ -2,6 +2,8 @@ package com.GymCompany.firstApp.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,9 +11,12 @@ import javax.validation.constraints.Size;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -110,7 +115,6 @@ public class UserListDTO {   // (db 유저리스트 객체)
 				+ ", joinDate=" + joinDate + ", lastLoginTime=" + lastLoginTime + "]";
 	}
     
-	
 	
 
 }
